@@ -1,0 +1,318 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Modern Portfolio Design System - Sherrie Shao Inspired Monochromatic Colors */
+
+@layer base {
+  :root {
+    /* Base Colors - Sophisticated Monochromatic Palette */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 11%;
+    
+    /* Card System */
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 11%;
+    
+    /* Interactive Elements */
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 11%;
+    
+    /* Brand Colors - Subtle Accent */
+    --primary: 220 13% 18%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 220 13% 25%;
+    
+    /* Secondary Palette - Warm Hint */
+    --secondary: 25 95% 53%;
+    --secondary-foreground: 0 0% 11%;
+    
+    /* Neutral Tones - Professional Grays */
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    
+    /* Accent Colors */
+    --accent: 0 0% 96%;
+    --accent-foreground: 0 0% 11%;
+    
+    /* Status Colors */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    
+    /* Borders & Inputs */
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 220 13% 18%;
+    
+    /* Design Tokens */
+    --radius: 0.75rem;
+    
+    /* Custom Gradients - Subtle & Monochromatic */
+    --gradient-primary: linear-gradient(135deg, hsl(220 13% 18%), hsl(220 13% 25%));
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%), hsl(0 0% 96%));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(0 0% 96% / 0.3));
+    
+    /* Shadows - Minimal & Professional */
+    --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.08);
+    --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.1);
+    --shadow-glow: 0 0 20px hsl(0 0% 0% / 0.08);
+    
+    /* Animation Durations */
+    --duration-fast: 0.15s;
+    --duration-normal: 0.3s;
+    --duration-slow: 0.5s;
+    
+    /* Typography Scale - Professional & Readable */
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 1.875rem;
+    --font-size-4xl: 2.25rem;
+    --font-size-5xl: 3rem;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 0 0% 45%;
+    --sidebar-primary: 0 0% 11%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 96%;
+    --sidebar-accent-foreground: 0 0% 11%;
+    --sidebar-border: 0 0% 90%;
+    --sidebar-ring: 220 13% 18%;
+  }
+
+  .dark {
+    /* Dark Mode Base - Sophisticated Dark Theme */
+    --background: 0 0% 7%;
+    --foreground: 0 0% 98%;
+    
+    /* Dark Cards */
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 98%;
+    
+    /* Dark Interactive Elements */
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 98%;
+    
+    /* Dark Brand Colors */
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 7%;
+    --primary-glow: 0 0% 90%;
+    
+    /* Dark Secondary */
+    --secondary: 25 95% 53%;
+    --secondary-foreground: 0 0% 7%;
+    
+    /* Dark Neutral Tones */
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
+    
+    /* Dark Accent */
+    --accent: 0 0% 15%;
+    --accent-foreground: 0 0% 65%;
+    
+    /* Dark Status Colors */
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    
+    /* Dark Borders & Inputs */
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 0 0% 98%;
+    
+    /* Dark Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(0 0% 98%), hsl(0 0% 90%));
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 7%), hsl(0 0% 15%));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 7%), hsl(0 0% 15% / 0.3));
+    
+    /* Dark Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.2);
+    --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.3);
+    --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.4);
+    --shadow-glow: 0 0 20px hsl(0 0% 0% / 0.3);
+    
+    --sidebar-background: 0 0% 7%;
+    --sidebar-foreground: 0 0% 65%;
+    --sidebar-primary: 0 0% 98%;
+    --sidebar-primary-foreground: 0 0% 7%;
+    --sidebar-accent: 0 0% 15%;
+    --sidebar-accent-foreground: 0 0% 65%;
+    --sidebar-border: 0 0% 15%;
+    --sidebar-ring: 0 0% 98%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    font-variation-settings: 'opsz' 32;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Typography System */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+  }
+
+  h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  h3 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  p {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    line-height: 1.7;
+    font-weight: 400;
+  }
+
+  /* Professional Button Typography */
+  button, .btn {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+  }
+}
+
+@layer utilities {
+  /* Typography Utilities */
+  .text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .text-gradient-secondary {
+    background: linear-gradient(135deg, hsl(25 95% 53%), hsl(25 95% 63%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* Animation Utilities */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+  
+  /* Custom Shadows */
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .shadow-soft {
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  }
+  
+  .shadow-subtle {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  }
+  
+  /* Backdrop Effects */
+  .backdrop-glass {
+    backdrop-filter: blur(12px) saturate(180%);
+    background-color: hsl(var(--card) / 0.8);
+    border: 1px solid hsl(var(--border) / 0.2);
+  }
+
+  .backdrop-modern {
+    backdrop-filter: blur(16px) saturate(200%);
+    background: linear-gradient(135deg, hsl(var(--card) / 0.9), hsl(var(--card) / 0.7));
+    border: 1px solid hsl(var(--border) / 0.3);
+  }
+
+  .backdrop-subtle {
+    backdrop-filter: blur(8px) saturate(150%);
+    background: hsl(var(--card) / 0.6);
+    border: 1px solid hsl(var(--border) / 0.2);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+  }
+  to {
+    text-shadow: 0 0 30px hsl(var(--primary) / 0.5);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.3);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.5);
+}
