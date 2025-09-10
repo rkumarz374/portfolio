@@ -2,10 +2,15 @@ import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import project1 from "@/assets/Ghar-Care.png";
-import project2 from "@/assets/project-2.jpg";
-import project3 from "@/assets/project-3.jpg";
+import project2 from "@/assets/repair-ar.png";
+import project3 from "@/assets/rural-india.png";
+import project4 from "@/assets/neer-kosh.jpg";
+import project5 from "@/assets/kurukshetra.jpg";
+import project6 from "@/assets/air-pollution.png";
+
 
 const projects = [
+
   {
     id: 1,
     title: "Ghar Care",
@@ -34,7 +39,7 @@ const projects = [
     id: 4,
     title: "Neer-Kosh",
     description: "Neer-Kosh is a Water dispenser for railway commuters which ensures safe drinking water while maintaining social disctancing",
-    image: project1,
+    image: project4,
     behanceUrl: "https://www.behance.net/gallery/109837679/-Kosh-Water-dispenser-for-railways",
     tags: ["Product Design", "Workshop", "User Research"]
   },
@@ -42,7 +47,7 @@ const projects = [
     id: 5,
     title: "Kurukshetra",
     description: "A Board game Inspired from the Events of Mahabharata, When the Pandavasa were in exile Period and they were preparing for the upcoming war ( The Great Kurukshetra War)",
-    image: project2,
+    image: project5,
     behanceUrl: "https://www.behance.net/gallery/102485515/Kurukshetra-board-game",
     tags: ["Board Game", "Mahabharata", "Visual Design"]
   },
@@ -50,7 +55,7 @@ const projects = [
     id: 6,
     title: "Air Pollution of Delhi(DIY Solution)",
     description: "Low Cost and DIY Solution for Slum Dwellers of New Delhi to tackle Air Pollution",
-    image: project3,
+    image: project6,
     behanceUrl: "https://www.behance.net/gallery/106432779/Air-pollution-in-Delhi-DIY-solution-for-slum-dwellers",
     tags: ["Social", "Community", "Product"]
   }
@@ -159,7 +164,7 @@ export const Projects = () => {
           className="text-center mt-16"
         >
           <motion.a
-            href="https://behance.net/rajatshakya"
+            href="https://www.behance.net/arrajat"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center px-8 py-3 bg-primary text-primary-foreground rounded-full font-semibold hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-glow"

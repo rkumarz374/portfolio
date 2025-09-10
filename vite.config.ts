@@ -9,11 +9,9 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
   },
-  plugins: [
-    react(),
-    mode === 'development' &&
-    componentTagger(),
-  ].filter(Boolean),
+  // 👇 Use "/" for local dev, "/portfolio/" for GitHub Pages
+  base: mode === "development" ? "/" : "/portfolio/",
+  plugins: [react(),],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
