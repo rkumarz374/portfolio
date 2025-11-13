@@ -86,21 +86,20 @@ const About = () => {
                 <h3 className="text-2xl font-bold mb-6 text-foreground">My Story</h3>
                 <div className="space-y-6 text-muted-foreground leading-relaxed font-inter">
                   <p>
-                    I started my design journey in 2019, driven by a passion for creating 
-                    digital experiences that not only look beautiful but also solve real user problems. 
-                    Over the years, I've evolved from a visual designer to a strategic product designer 
-                    who thinks beyond aesthetics.
+                  I began my design journey in 2019 with a simple curiosity — how design could shape the 
+                  way people interact with the world. Over the years, I’ve grown from experimenting with visuals 
+                  into becoming a certified human-centered design practitioner and business designer, crafting 
+                  experiences that go beyond aesthetics.
                   </p>
                   <p>
-                    My approach combines deep user research, strategic thinking, and creative execution. 
-                    I believe that great design happens at the intersection of user needs, business goals, 
-                    and technical feasibility. Every project I work on is an opportunity to learn, grow, 
-                    and create something meaningful.
+                  From startups to MNCs, my path has been about solving real problems through thoughtful design. 
+                  Today, I’m building digital products and designing websites at a growing startup, where every 
+                  project challenges me to balance user needs, business goals, and technical possibilities.
                   </p>
                   <p>
-                    When I'm not designing, you'll find me exploring new design trends, mentoring 
-                    junior designers, or contributing to the design community. I'm always open to 
-                    new challenges and opportunities to make a positive impact through design.
+                  Alongside my work, I’ve pursued multiple certifications in product design, AI, problem-solving, 
+                  and emotional design. Each of these fuels my mission: to create designs that are not only 
+                  functional but also connect with people on a deeper level.
                   </p>
                 </div>
 

@@ -160,7 +160,7 @@ export const Hero = () => {
               className="inline-flex items-center px-4 py-2 rounded-full bg-muted border border-border text-foreground text-sm font-medium mb-6 backdrop-subtle"
             >
               <Calendar className="w-4 h-4 mr-2" />
-              4+ Years Experience
+              5+ Years Experience
             </motion.div>
 
             {/* Heading */}
@@ -191,6 +191,7 @@ export const Hero = () => {
             </motion.p>
 
             {/* CTA Buttons */}
+            {/* 
             <motion.div
               className="inline-flex gap-4 mb-8"
               initial={{ opacity: 0, y: 30 }}
@@ -202,6 +203,7 @@ export const Hero = () => {
                 Get in Touch
               </Button>
             </motion.div>
+            
 
             {/* Social Links */}
             <motion.div
