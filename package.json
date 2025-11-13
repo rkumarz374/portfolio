@@ -11,6 +11,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
+    "postbuild": "cp CNAME dist/CNAME",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
