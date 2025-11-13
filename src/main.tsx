@@ -6,7 +6,7 @@ import "./index.css";
 
 createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <BrowserRouter basename={import.meta.env.MODE === "development" ? "/" : "/portfolio"}>
+    <BrowserRouter>
       <App />
     </BrowserRouter>
   </React.StrictMode>
