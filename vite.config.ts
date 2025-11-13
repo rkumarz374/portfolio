@@ -10,7 +10,7 @@ export default defineConfig(({ mode }) => ({
     port: 8080,
   },
   // 👇 Use "/" for local dev, "/portfolio/" for GitHub Pages
-  base: "/",
+  base: "./",
   plugins: [react(),],
   resolve: {
     alias: {
