@@ -38,7 +38,7 @@ const projects = [
   {
     id: 4,
     title: "Neer-Kosh",
-    description: "Neer-Kosh is a Water dispenser for railway commuters which ensures safe drinking water while maintaining social disctancing",
+    description: "Water dispenser for railway commuters ensuring safe drinking water while maintaining social distancing.",
     image: project4,
     behanceUrl: "https://www.behance.net/gallery/109837679/-Kosh-Water-dispenser-for-railways",
     tags: ["Product Design", "Workshop", "User Research"]
@@ -53,115 +53,152 @@ const projects = [
   },
   {
     id: 6,
-    title: "Air Pollution of Delhi(DIY Solution)",
+    title: "DIY Solution for pollution in delhi",
     description: "Low Cost and DIY Solution for Slum Dwellers of New Delhi to tackle Air Pollution",
     image: project6,
     behanceUrl: "https://www.behance.net/gallery/106432779/Air-pollution-in-Delhi-DIY-solution-for-slum-dwellers",
     tags: ["Social", "Community", "Product"]
   }
-  
+
 ];
 
-export const Projects = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
-
-  const cardVariants = {
+export const Projects = ({ className }: { className?: string }) => {
+  const projectVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.5 }
+      transition: { duration: 0.6 }
     }
   };
 
   return (
-    <section id="projects" className="py-24 bg-gradient-to-b from-background to-muted/20">
+    <section id="projects" className={`py-24 bg-gradient-to-b from-muted/20 to-background ${className}`}>
       <div className="container mx-auto px-4 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-left mb-12"
         >
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
             Featured <span className="text-gradient">Projects</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            A selection of my recent work showcasing design thinking, 
+          <p className="text-lg text-muted-foreground max-w-2xl">
+            A selection of my recent work showcasing design thinking,
             user research, and creative problem-solving across various industries.
           </p>
         </motion.div>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
-          {projects.map((project) => (
-            <motion.div key={project.id} variants={cardVariants}>
-              <Card className="group overflow-hidden border-0 shadow-lg hover:shadow-glow transition-all duration-500 backdrop-glass">
-                <div className="relative overflow-hidden">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {projects.map((project, index) => (
+            <motion.div
+              key={project.id}
+              variants={projectVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              whileHover={{ scale: 1.02, y: -8 }}
+              transition={{ duration: 0.3 }}
+              className="flex flex-col gap-4 p-6 rounded-3xl border-2 border-border bg-card/30 backdrop-blur-sm hover:border-foreground/20 transition-all duration-500 shadow-lg hover:shadow-xl cursor-pointer"
+            >
+              {/* Image Side */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="w-full"
+              >
+                <div className="relative group overflow-hidden rounded-2xl shadow-xl">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="w-full h-48 object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="absolute bottom-4 right-4">
-                      <motion.a
-                        href={project.behanceUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center w-10 h-10 bg-primary text-primary-foreground rounded-full hover:bg-primary/90 transition-colors"
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        <ExternalLink className="h-4 w-4" />
-                      </motion.a>
-                    </div>
-                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
-                
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
-                    {project.title}
-                  </h3>
-                  <p className="text-muted-foreground mb-4 leading-relaxed">
-                    {project.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full border border-primary/20"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
+              </motion.div>
+
+              {/* Content Side */}
+              <div className="space-y-4">
+                {/* Title */}
+                <motion.h3
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  className="text-2xl md:text-3xl font-bold leading-tight"
+                >
+                  {project.title}
+                </motion.h3>
+
+                {/* Tags */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                  className="flex flex-wrap gap-2"
+                >
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-3 py-1.5 text-xs font-medium bg-muted text-foreground rounded-lg border border-border"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </motion.div>
+
+                {/* Description */}
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
+                  className="text-base text-muted-foreground leading-relaxed"
+                >
+                  {project.description}
+                </motion.p>
+
+                {/* Case Study Link */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.5 }}
+                >
+                  <motion.a
+                    href={project.behanceUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-foreground font-semibold text-base group"
+                    whileHover={{ x: 5 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    Case Study
+                    <motion.span
+                      className="inline-block"
+                      animate={{ x: [0, 5, 0] }}
+                      transition={{ duration: 1.5, repeat: Infinity }}
+                    >
+                      →
+                    </motion.span>
+                  </motion.a>
+                </motion.div>
+              </div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-center mt-16"
+          className="text-center mt-24"
         >
           <motion.a
             href="https://www.behance.net/arrajat"

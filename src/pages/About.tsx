@@ -5,9 +5,9 @@ import { Footer } from "@/components/footer";
 
 const About = () => {
   const skills = [
-    "Product Design", "UX/UI Design", "Strategic Design", "User Research",
-    "Prototyping", "Design Systems", "Figma", "Adobe Creative Suite",
-    "Design Thinking", "User Testing", "Information Architecture", "Visual Design"
+    "Product Design", "UX/UI Design", "Strategic Design", "Website and Mobile Apps",
+    "Interaction Design", "Design Systems", "Brand Identity", "Webflow",
+    "Design Thinking", "User Testing", "Information Architecture", "Visual Design", "Adobe Creative Suite"
   ];
 
   const experience = [
@@ -15,7 +15,7 @@ const About = () => {
       year: "2024 - Present",
       role: "UX Designer L2",
       company: "Awiros",
-      description: "1. Website Revamp: Led the redesign and development of the company website using Figma and Webflow. Delivered a modern, globally appealing UX that increased user engagement by 60% and boosted daily inbound leads.2. USP Product Design: Redesigned our flagship product for cloud-first deployment, simplifying user journeys and enhancing scalability for international markets. 3. ATOM Annotation Tool: Revamped ATOM, our in-house annotation platform used by 80+ freelancers, with a focus on intuitive workflows, integrated payments, and higher productivity — resulting in fewer repetitive queries and faster task completion."
+      description: "1. Website Revamp: Led redesign and development in Figma and Webflow; improved engagement by 60–80% and boosted inbound leads.\n\n2. Designed and led end-to-end UX for a Freelancer & Payment Management Dashboard, replacing third-party tools through usability testing and iterative design.\n\n3. Spearheaded the redesign of the flagship product for cloud-first deployment, simplifying user flows and enabling scalability for international clients.\n\n4. Created impactful marketing collateral (pitch decks, brochures, event visuals) that strengthened client engagement and brand perception."
     },
     {
       year: "2022 - 2024",
@@ -70,7 +70,7 @@ const About = () => {
             >
               <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">About Me</h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-inter">
-                I'm a passionate product designer with over 5 years of experience creating 
+                I'm a passionate product designer with over 5 years of experience creating
                 meaningful digital experiences that drive business growth and user satisfaction.
               </p>
             </motion.div>
@@ -86,20 +86,13 @@ const About = () => {
                 <h3 className="text-2xl font-bold mb-6 text-foreground">My Story</h3>
                 <div className="space-y-6 text-muted-foreground leading-relaxed font-inter">
                   <p>
-                  I began my design journey in 2019 with a simple curiosity — how design could shape the 
-                  way people interact with the world. Over the years, I’ve grown from experimenting with visuals 
-                  into becoming a certified human-centered design practitioner and business designer, crafting 
-                  experiences that go beyond aesthetics.
+                    I began my design journey in 2019 with a simple curiosity — how design could shape the way people interact with the world. Over the years, that curiosity has evolved into a strong foundation in human-centered and business-driven design. What started with experimenting in visuals has grown into crafting digital experiences that are intuitive, functional, and strategically aligned with user and business needs.
                   </p>
                   <p>
-                  From startups to MNCs, my path has been about solving real problems through thoughtful design. 
-                  Today, I’m building digital products and designing websites at a growing startup, where every 
-                  project challenges me to balance user needs, business goals, and technical possibilities.
+                    From startups to MNCs, my path has always been about solving real problems through thoughtful design. Today, at a fast-growing startup, I design digital products and build modern websites — integrating the latest design trends, Webflow development, and AI-powered prototyping to move from idea to impact faster and more efficiently.
                   </p>
                   <p>
-                  Alongside my work, I’ve pursued multiple certifications in product design, AI, problem-solving, 
-                  and emotional design. Each of these fuels my mission: to create designs that are not only 
-                  functional but also connect with people on a deeper level.
+                    Alongside my work, I’ve continuously expanded my skill set through certifications in product design, AI, problem-solving, and emotional design. These experiences fuel my mission to create solutions that not only work well but also resonate with people on a deeper, more meaningful level.
                   </p>
                 </div>
 
@@ -152,7 +145,11 @@ const About = () => {
                         <div className="text-sm text-muted-foreground font-medium mb-1">{exp.year}</div>
                         <h4 className="font-semibold text-lg mb-1 text-foreground">{exp.role}</h4>
                         <div className="text-muted-foreground mb-2 font-inter">{exp.company}</div>
-                        <p className="text-muted-foreground text-sm leading-relaxed font-inter">{exp.description}</p>
+                        <div className="text-muted-foreground text-sm leading-relaxed font-inter space-y-2">
+                          {exp.description.split('\n\n').map((point, i) => (
+                            <div key={i}>{point}</div>
+                          ))}
+                        </div>
                       </motion.div>
                     ))}
                   </div>
@@ -188,7 +185,10 @@ const About = () => {
               viewport={{ once: true }}
               className="mt-20"
             >
-              <h3 className="text-2xl font-bold text-center mb-12 text-foreground">Key Achievements</h3>
+              <h3 className="text-2xl font-bold text-center mb-4 text-foreground">Key Target Achievements</h3>
+              <p className="text-center text-muted-foreground max-w-3xl mx-auto mb-12 font-inter">
+                Here are the big goals I plan to conquer within the year—because growth happens outside comfort zones… and sometimes in panic mode too.
+              </p>
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {achievements.map((achievement, index) => (
                   <motion.div

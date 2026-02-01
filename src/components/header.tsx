@@ -12,8 +12,8 @@ export const Header = () => {
   const toggleTheme = () => setTheme(theme === "light" ? "dark" : "light");
 
   const navItems = [
-    ,
     { name: "About", href: "/about" },
+    { name: "Portfolio", href: "https://drive.google.com/file/d/1vwsgen2MPsmpbv6sLDkvIxxETPNSF9zc/view?usp=sharing", external: true },
     { name: "Contact", href: "/contact" },
   ];
 
@@ -43,16 +43,29 @@ export const Header = () => {
               {/* Desktop Navigation */}
               <nav className="hidden md:flex items-center gap-8" aria-label="Primary">
                 {navItems.map((item) => (
-                  <Link key={item.name} to={item.href}>
-                    <motion.div
-                      className="text-foreground hover:text-primary transition-colors duration-300 relative group"
-                      whileHover={{ y: -2 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      {item.name}
-                      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
-                    </motion.div>
-                  </Link>
+                  item.external ? (
+                    <a key={item.name} href={item.href} target="_blank" rel="noopener noreferrer">
+                      <motion.div
+                        className="text-foreground hover:text-primary transition-colors duration-300 relative group"
+                        whileHover={{ y: -2 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        {item.name}
+                        <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+                      </motion.div>
+                    </a>
+                  ) : (
+                    <Link key={item.name} to={item.href}>
+                      <motion.div
+                        className="text-foreground hover:text-primary transition-colors duration-300 relative group"
+                        whileHover={{ y: -2 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        {item.name}
+                        <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+                      </motion.div>
+                    </Link>
+                  )
                 ))}
               </nav>
 
@@ -78,15 +91,27 @@ export const Header = () => {
           >
             <nav className="py-4 space-y-2" aria-label="Mobile Primary">
               {navItems.map((item) => (
-                <Link key={item.name} to={item.href} onClick={() => setIsMenuOpen(false)}>
-                  <motion.div
-                    className="block py-2 px-4 text-foreground hover:text-primary hover:bg-muted rounded-lg transition-all duration-300"
-                    whileHover={{ x: 10 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    {item.name}
-                  </motion.div>
-                </Link>
+                item.external ? (
+                  <a key={item.name} href={item.href} target="_blank" rel="noopener noreferrer" onClick={() => setIsMenuOpen(false)}>
+                    <motion.div
+                      className="block py-2 px-4 text-foreground hover:text-primary hover:bg-muted rounded-lg transition-all duration-300"
+                      whileHover={{ x: 10 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      {item.name}
+                    </motion.div>
+                  </a>
+                ) : (
+                  <Link key={item.name} to={item.href} onClick={() => setIsMenuOpen(false)}>
+                    <motion.div
+                      className="block py-2 px-4 text-foreground hover:text-primary hover:bg-muted rounded-lg transition-all duration-300"
+                      whileHover={{ x: 10 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      {item.name}
+                    </motion.div>
+                  </Link>
+                )
               ))}
             </nav>
           </motion.div>

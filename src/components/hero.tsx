@@ -13,7 +13,7 @@ function EasterEggName() {
     if (t.current) window.clearTimeout(t.current);
     setAlt(true);
     // Keep the "alt" state for a bit longer for a smoother transition
-    t.current = window.setTimeout(() => setAlt(false), 900); 
+    t.current = window.setTimeout(() => setAlt(false), 900);
   };
 
   useEffect(() => () => { if (t.current) window.clearTimeout(t.current); }, []);
@@ -34,16 +34,16 @@ function EasterEggName() {
           key={alt ? "alt" : "main"}
           initial={{ opacity: 0, y: 8 }}
           animate={{
-            opacity: 1, 
-            y: 0, 
+            opacity: 1,
+            y: 0,
             // New: Animate color change smoothly
-            color: alt ? "var(--accent)" : "var(--foreground)" 
+            color: alt ? "var(--accent)" : "var(--foreground)"
           }}
           exit={{ opacity: 0, y: -8 }}
-          transition={{ 
+          transition={{
             duration: 0.22,
             // New: Ensure color transition is also smooth
-            color: { duration: 0.4 } 
+            color: { duration: 0.4 }
           }}
           className="inline-block"
         >
@@ -59,7 +59,7 @@ function RoleCycler() {
     "Senior Product Designer",
     "UX Strategist",
     "Interaction Designer",
-    "Design Systems Builder",
+    "AI & Business Designer",
   ];
   const [i, setI] = useState(0);
   const [pause, setPause] = useState(false);
@@ -134,12 +134,12 @@ export const Hero = () => {
     { icon: Linkedin, href: "https://www.linkedin.com/in/rajatkumarshakya/", label: "LinkedIn" },
     { icon: Palette, href: "https://www.behance.net/arrajat", label: "Behance" },
     { icon: Github, href: "https://github.com/rajatshakya", label: "GitHub" },
-    { icon: Mail, href: "mailto:rajat@example.com", label: "Email" },
+    { icon: Mail, href: "mailto:rajatshakya.design@gmail.com", label: "Email" },
   ];
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-    
+
       {/* Subtle Particles */}
       <Particles />
 

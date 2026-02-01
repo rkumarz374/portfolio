@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 
 declare global {
   interface Window {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     particlesJS: any;
   }
 }
@@ -26,12 +27,12 @@ export const Particles = () => {
             stroke: { width: 0, color: "#000000" },
           },
           opacity: {
-            value: 0.4,
+            value: 0.5,
             random: true,
             anim: {
               enable: true,
               speed: 1.5,
-              opacity_min: 0.25,
+              opacity_min: 0.5,
               sync: false,
             },
           },
@@ -48,9 +49,9 @@ export const Particles = () => {
           line_linked: {
             enable: true,
             distance: 180,
-            color: "#666666",
-            opacity: 0.4,
-            width: 1,
+            color: "#333333",
+            opacity: 0.15,
+            width: 2,
           },
           move: {
             enable: true,
@@ -82,8 +83,8 @@ export const Particles = () => {
           },
           modes: {
             attract: {
-              distance: 200,
-              duration: 0.4,
+              distance: 300,
+              duration: 0.8,
             },
             grab: {
               distance: 200,

@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -31,29 +32,54 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      // EmailJS configuration
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'YOUR_SERVICE_ID';
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'YOUR_TEMPLATE_ID';
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'YOUR_PUBLIC_KEY';
+
+      // Send email using EmailJS
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+          to_email: 'rajatshakya.design@gmail.com',
+        },
+        publicKey
+      );
+
       setIsSubmitting(false);
       setIsSubmitted(true);
       toast({
         title: "Message sent!",
         description: "Thank you for reaching out. I'll get back to you soon.",
       });
-      
+
       // Reset form after 3 seconds
       setTimeout(() => {
         setIsSubmitted(false);
         setFormData({ name: "", email: "", message: "" });
       }, 3000);
-    }, 1000);
+    } catch (error) {
+      setIsSubmitting(false);
+      console.error('EmailJS Error:', error);
+      toast({
+        title: "Failed to send message",
+        description: "Please try again or contact me directly at rajatshakya.design@gmail.com",
+        variant: "destructive",
+      });
+    }
   };
 
   const contactInfo = [
     {
       icon: Mail,
       label: "Email",
-      value: "hello@rajatshakya.com",
-      href: "mailto:hello@rajatshakya.com"
+      value: "rajatshakya.design@gmail.com",
+      href: "mailto:rajatshakya.design@gmail.com"
     },
     {
       icon: Phone,
@@ -92,7 +118,7 @@ const Contact = () => {
                 Let's <span className="text-gradient">Connect</span>
               </h1>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Have a project in mind? I'd love to hear about it. Let's discuss 
+                Have a project in mind? I'd love to hear about it. Let's discuss
                 how we can bring your ideas to life.
               </p>
             </motion.div>
@@ -107,7 +133,7 @@ const Contact = () => {
                 <Card className="backdrop-glass border-0 shadow-lg">
                   <CardContent className="p-8">
                     <h2 className="text-2xl font-bold mb-6">Send Message</h2>
-                    
+
                     <form onSubmit={handleSubmit} className="space-y-6">
                       <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -242,8 +268,8 @@ const Contact = () => {
                 <div>
                   <h2 className="text-2xl font-bold mb-6">Get in Touch</h2>
                   <p className="text-muted-foreground leading-relaxed mb-8">
-                    I'm always excited to discuss new opportunities and creative challenges. 
-                    Whether you have a specific project in mind or just want to connect, 
+                    I'm always excited to discuss new opportunities and creative challenges.
+                    Whether you have a specific project in mind or just want to connect,
                     I'd love to hear from you.
                   </p>
                 </div>
@@ -259,9 +285,8 @@ const Contact = () => {
                     >
                       <motion.a
                         href={item.href}
-                        className={`flex items-center p-4 rounded-lg border border-border/50 backdrop-glass transition-all duration-300 ${
-                          item.href !== '#' ? 'hover:border-primary/50 hover:shadow-glow cursor-pointer' : 'cursor-default'
-                        }`}
+                        className={`flex items-center p-4 rounded-lg border border-border/50 backdrop-glass transition-all duration-300 ${item.href !== '#' ? 'hover:border-primary/50 hover:shadow-glow cursor-pointer' : 'cursor-default'
+                          }`}
                         whileHover={item.href !== '#' ? { scale: 1.02, y: -2 } : {}}
                         whileTap={item.href !== '#' ? { scale: 0.98 } : {}}
                       >
