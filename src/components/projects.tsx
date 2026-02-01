@@ -91,57 +91,40 @@ export const Projects = ({ className }: { className?: string }) => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <motion.div
+            <motion.a
               key={project.id}
+              href={project.behanceUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               variants={projectVariants}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
-              whileHover={{ scale: 1.02, y: -8 }}
+              viewport={{ once: true, margin: "-50px" }}
+              whileHover={{ y: -4 }}
               transition={{ duration: 0.3 }}
-              className="flex flex-col gap-4 p-6 rounded-3xl border-2 border-border bg-card/30 backdrop-blur-sm hover:border-foreground/20 transition-all duration-500 shadow-lg hover:shadow-xl cursor-pointer"
+              className="group flex flex-col rounded-3xl border border-border bg-card/30 backdrop-blur-sm overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer"
             >
-              {/* Image Side */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className="w-full"
-              >
-                <div className="relative group overflow-hidden rounded-2xl shadow-xl">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-48 object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </div>
-              </motion.div>
+              {/* Image Side - Full Width Bleed */}
+              <div className="w-full h-48 overflow-hidden relative">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </div>
 
-              {/* Content Side */}
-              <div className="space-y-4">
+              {/* Content Side - With Padding */}
+              <div className="flex flex-col gap-4 p-6">
                 {/* Title */}
-                <motion.h3
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
-                  className="text-2xl md:text-3xl font-bold leading-tight"
-                >
+                <h3 className="text-2xl font-bold leading-tight group-hover:text-primary transition-colors duration-300">
                   {project.title}
-                </motion.h3>
+                </h3>
 
                 {/* Tags */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.3 }}
-                  className="flex flex-wrap gap-2"
-                >
+                <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
@@ -150,46 +133,22 @@ export const Projects = ({ className }: { className?: string }) => {
                       {tag}
                     </span>
                   ))}
-                </motion.div>
+                </div>
 
                 {/* Description */}
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.4 }}
-                  className="text-base text-muted-foreground leading-relaxed"
-                >
+                <p className="text-base text-muted-foreground leading-relaxed line-clamp-3">
                   {project.description}
-                </motion.p>
+                </p>
 
-                {/* Case Study Link */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.5 }}
-                >
-                  <motion.a
-                    href={project.behanceUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-foreground font-semibold text-base group"
-                    whileHover={{ x: 5 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    Case Study
-                    <motion.span
-                      className="inline-block"
-                      animate={{ x: [0, 5, 0] }}
-                      transition={{ duration: 1.5, repeat: Infinity }}
-                    >
-                      →
-                    </motion.span>
-                  </motion.a>
-                </motion.div>
+                {/* Case Study CTA */}
+                <div className="mt-auto pt-2 flex items-center gap-2 text-foreground font-semibold text-base">
+                  Case Study
+                  <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
+                    →
+                  </span>
+                </div>
               </div>
-            </motion.div>
+            </motion.a>
           ))}
         </div>
 
