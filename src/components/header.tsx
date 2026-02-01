@@ -13,7 +13,7 @@ export const Header = () => {
 
   const navItems = [
     { name: "About", href: "/about" },
-    { name: "Portfolio", href: "https://drive.google.com/file/d/1vwsgen2MPsmpbv6sLDkvIxxETPNSF9zc/view?usp=sharing", external: true },
+    { name: "Resume", href: "https://drive.google.com/file/d/1vwsgen2MPsmpbv6sLDkvIxxETPNSF9zc/view?usp=sharing", external: true },
     { name: "Contact", href: "/contact" },
   ];
 

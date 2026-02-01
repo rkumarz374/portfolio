@@ -46,7 +46,7 @@ const Contact = () => {
           from_name: formData.name,
           from_email: formData.email,
           message: formData.message,
-          to_email: 'rajatshakya.design@gmail.com',
+          to_email: 'rajatkumar.spab@gmail.com',
         },
         publicKey
       );
@@ -68,7 +68,7 @@ const Contact = () => {
       console.error('EmailJS Error:', error);
       toast({
         title: "Failed to send message",
-        description: "Please try again or contact me directly at rajatshakya.design@gmail.com",
+        description: "Please try again or contact me directly at rajatkumar.spab@gmail.com",
         variant: "destructive",
       });
     }
@@ -78,8 +78,8 @@ const Contact = () => {
     {
       icon: Mail,
       label: "Email",
-      value: "rajatshakya.design@gmail.com",
-      href: "mailto:rajatshakya.design@gmail.com"
+      value: "rajatkumar.spab@gmail.com",
+      href: "mailto:rajatkumar.spab@gmail.com"
     },
     {
       icon: Phone,
