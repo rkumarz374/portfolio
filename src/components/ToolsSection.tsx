@@ -1,74 +1,79 @@
 import { motion } from "framer-motion";
 import {
-    SiFigma,
     SiOpenai,
-    SiGoogle,
     SiAdobe,
     SiMiro,
 } from "react-icons/si";
-import { TbRocket, TbSparkles } from "react-icons/tb";
-import { RiRobot2Line } from "react-icons/ri";
+
+// Import tool images
+import FigmaIcon from "@/assets/Figma.png";
+import ClaudeIcon from "@/assets/Claude_AI_symbol.svg";
+import PerplexityIcon from "@/assets/perplexity-color.png";
+import AntigravityIcon from "@/assets/google_antigravity-logo_brandlogos.net_qu4jc.png";
+import LovableIcon from "@/assets/lovable-logo-icon.svg";
 
 const tools = [
     {
         name: "Figma",
         category: "Design & Craft",
-        icon: SiFigma,
+        icon: FigmaIcon,
+        isImage: true,
         color: "#F24E1E",
     },
     {
         name: "ChatGPT",
         category: "Research and study",
         icon: SiOpenai,
+        isImage: false,
         color: "#10A37F",
     },
     {
         name: "Claude",
         category: "Research and study",
-        icon: RiRobot2Line,
+        icon: ClaudeIcon,
+        isImage: true,
         color: "#D97757",
     },
     {
         name: "Perplexity",
         category: "Research and study",
-        icon: TbSparkles,
+        icon: PerplexityIcon,
+        isImage: true,
         color: "#1FB8CD",
     },
     {
         name: "Antigravity",
         category: "Development",
-        icon: TbRocket,
+        icon: AntigravityIcon,
+        isImage: true,
         color: "#F97316",
     },
     {
         name: "Lovable",
         category: "Explore and development",
-        icon: TbSparkles,
+        icon: LovableIcon,
+        isImage: true,
         color: "#EC4899",
-    },
-    {
-        name: "Raycast",
-        category: "Productivity",
-        icon: TbRocket,
-        color: "#FF6363",
     },
     {
         name: "Adobe Suite",
         category: "Creatives",
         icon: SiAdobe,
+        isImage: false,
         color: "#FF0000",
     },
     {
         name: "Miro",
         category: "Collaboration",
         icon: SiMiro,
+        isImage: false,
         color: "#FFD02F",
     },
 ];
 
 export const ToolsSection = () => {
     return (
-        <section id="tools" className="py-24 bg-gradient-to-b from-background to-muted/20">
+        <section id="tools" className="py-24 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
             <div className="container mx-auto px-4 lg:px-8">
                 <div className="max-w-6xl mx-auto">
                     {/* Section Header */}
@@ -108,10 +113,18 @@ export const ToolsSection = () => {
                                             </p>
                                         </div>
                                         <div className="flex-shrink-0 ml-3">
-                                            <tool.icon
-                                                className="w-8 h-8 transition-transform duration-300 group-hover:scale-110"
-                                                style={{ color: tool.color }}
-                                            />
+                                            {tool.isImage ? (
+                                                <img
+                                                    src={tool.icon as string}
+                                                    alt={tool.name}
+                                                    className="w-8 h-8 object-contain transition-transform duration-300 group-hover:scale-110"
+                                                />
+                                            ) : (
+                                                <tool.icon
+                                                    className="w-8 h-8 transition-transform duration-300 group-hover:scale-110"
+                                                    style={{ color: tool.color }}
+                                                />
+                                            )}
                                         </div>
                                     </div>
                                 </div>
